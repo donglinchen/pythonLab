@@ -1,0 +1,28 @@
+'''
+A generator function that produces prime numbers
+Created on Aug 18, 2017
+Demonstrates two python features:
+1. generator
+    generator behaves like an iterator with lazy evaluation
+2. for else clause
+    else clause executes when loop completes without encountering break
+'''
+def genPrimes():
+    lastChecked = 1  # n stores last number
+    knownPrimes = [] # primes generated so far
+    while True:
+        lastChecked += 1
+        for p in knownPrimes:
+            if lastChecked % p == 0:
+                break
+        else:
+            knownPrimes.append(lastChecked)       
+            yield lastChecked
+  
+# usage example:         
+a = genPrimes()
+for e in a:
+    if e < 100:
+        print(e, end=" ")
+    else: 
+        break
