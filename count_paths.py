@@ -57,6 +57,6 @@ def count_paths(end_pos):
     num_paths = 0
     move(start_pos, end_pos, None)
 
-for i in range(10):
-    count_paths((i+1, i+1))
-    print(f"{(i+1, i+1)} ==> {num_paths}")
+for n in range(1, 11):
+    count_paths((n, n))
+    print(f"{(n, n)} ==> {num_paths}")
